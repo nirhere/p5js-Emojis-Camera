@@ -18,9 +18,9 @@ let emojiCode;
 
 //Loading Webcam Capture
 function setup() {
-  createCanvas(windowWidth, windowHeight);
   video = createCapture(VIDEO);
-
+  
+  createCanvas(windowWidth, windowHeight * video.height / video.width);
   poseNet = ml5.poseNet(video, modelReady);
   poseNet.on("pose", function (results) {
     poses = results;
@@ -40,7 +40,7 @@ function draw() {
   translate(width, 0);
   stroke(40,40,(frameCount % 128) + 60);
   scale(-1, 1)
- image(video, 0, 0, width, height);
+  image(video, 0, 0, width, height);
   drawLine();
   drawEmoji2();
   pop();
