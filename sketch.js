@@ -20,7 +20,7 @@ let emojiCode;
 function setup() {
   video = createCapture(VIDEO);
   
-  createCanvas(windowWidth, windowHeight * video.height / video.width);
+  createCanvas(windowWidth, 480);
   poseNet = ml5.poseNet(video, modelReady);
   poseNet.on("pose", function (results) {
     poses = results;
