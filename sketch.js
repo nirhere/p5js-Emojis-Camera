@@ -18,7 +18,7 @@ let emojiCode;
 
 //Loading Webcam Capture
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(windowWidth, windowHeight);
   video = createCapture(VIDEO);
 
   poseNet = ml5.poseNet(video, modelReady);
